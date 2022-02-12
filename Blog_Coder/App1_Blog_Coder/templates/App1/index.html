@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    
+
+    <header id="titulo">
+
+        <h1>Coderhouse Blog</h1>
+
+        <nav class="navbar navbar-light bg-light static-top">
+            <a class="inicio" href="{% url 'app1_inicio' %}">Inicio</a>
+            <a class="navbar-brand" href="{% url 'app1_about' %}">About</a>
+            <a class="navbar-brand" href="{% url 'app1_pages' %}">Pages</a>
+        </nav>
+
+    </header>
+
+    {% block content %}
+
+    <button type="">Click Me!</button>
+
+    {%  endblock %}
+  
+    <footer>
+        <section>
+            <a href="#titulo">Ir al comienzo</a>
+            <a href="mailto: scastillo.iea@gmail.com">scastillo.iea@gmail.com</a>
+        </section>
+        <p>Copyright 2022</p>
+    </footer>
+</body>
+</html>
