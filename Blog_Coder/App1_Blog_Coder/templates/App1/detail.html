@@ -1,0 +1,29 @@
+{% extends 'App1/index.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<h1>{{article.title}}</h1>
+<hr>
+<div>
+    {{ article.content | safe }}
+</div>
+<hr>
+<div>
+    {{article.content_upload | safe}}
+</div>
+
+<hr>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{form.media}}
+    {{form.as_p}}
+
+    <button>Save Changes</button>
+</form>
+
+{% endblock %}
