@@ -3,38 +3,27 @@
 
 {%  block content %}
 
-<section class="container">
-    <article class="post">
-        <h2>Análisis de regresión lineal subatómica nuclear</h2>
-        <p>En este análisis veremos como se hace una regresion 
-        lineal subatomica nuclear.</p>
-        <img src="/static/img/Base tabla 2.png" width="400" />
-        <p>Esta imagen nos muestra como se hace una regresión lineal subatomica nuclear.
-        <br>Este analisis se hace con mucha dedicación y esfuerzo, a parte de tener tiempo libre.</p>
-        <a class="leer_mas" href="">Leer mas</a>
-    </article>
-    <hr>
-    <article class="post">
-        <h2>Regresión lineal con pandas en Python</h2>
-        <p>En este análisis veremos como se hace una regresion 
-           lineal subatomica nuclear con la librearía Pandas de Python.</p>
-        <img src="/static/img/LOGO TIGRES.png" height="400" />
-        <p>Esta imagen nos muestra como se hace una regresión lineal subatomica nuclear con la Libreria
-           Pandas en Python.
-       <br>Este analisis se hace con mucha dedicación y esfuerzo, a parte de tener tiempo libre.
-       <br>Se necesita tener instalado Python 3.7.4 con la librería de Pandas.</p>
-    </article>
-    <hr>
-    <article class="post">
-        <h2>Regresión lineal con pandas en Python y Matplotlib</h2>
-        <p>En este análisis veremos como se hace una regresion 
-           lineal subatomica nuclear con la librearía Pandas de Python y Matplotlib</p>
-        <img src="/static/img/Marshall-Logo.png" width="400" />
-        <p>Esta imagen nos muestra como se hace una regresión lineal subatomica nuclear con la Libreria
-           Pandas en Python y Matplotlib.
-       <br>Este analisis se hace con mucha dedicación y esfuerzo, a parte de tener tiempo libre.
-       <br>Se necesita tener instalado Python 3.7.4 con la librería de Pandas y Matplotlib.</p>
-    </article>
-</section>
+<form method="GET" action="{% url 'app1_new_article' %}">
+    <button type="submit">Nuevo Articulo</button>
+</form>
+
+{% for article in articles %}
+
+    {{article.url}}
+
+    <section class="container">
+        <article class="post">
+            <h2>{{article.title|safe}}</h2>
+            <p>{{article.content|safe}}</p>
+            <img src="/media/uploads/2022/02/20/screenshot-at-feb-07-8-17-43-am.png" width="400" />
+            <a class="leer" href="{% url 'app1_detail_article' article.id%}">Leer</a>
+            <a class="actualizar" href="{% url 'app1_update_article' article.id%}">Actualizar Articulo</a>
+            <a class="borrar" href="{% url 'app1_delete_article' article.id%}">Borrar Articulo</a>
+
+        </article>
+        <hr>
+    </section>
+
+{%  endfor %}
 
 {%  endblock %}

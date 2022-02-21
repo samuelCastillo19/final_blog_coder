@@ -1,0 +1,16 @@
+{% extends 'App1/index.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<h1>{{article.title}}</h1>
+<div>
+    {{ article.content | safe }}
+</div>
+<div>
+    {{article.content_upload | safe}}
+</div>
+
+{% endblock %}

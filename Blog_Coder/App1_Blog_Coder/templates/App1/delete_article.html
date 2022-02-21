@@ -1,0 +1,20 @@
+{% extends 'App1/index.html' %}
+{% load static %}
+
+{% block content %}
+
+<p>Desea borrar a este articulo definitivamente?</p>
+
+<form action="" method="POST">{% csrf_token %}
+
+    Titulo: {{articles.title}}
+    <br>
+    <br>
+    Contenido: {{articles.content|safe}}
+
+    <input type="submit" value="Borrar">
+    
+
+</form>
+
+{% endblock %}
