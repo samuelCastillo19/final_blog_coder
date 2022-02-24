@@ -7,10 +7,15 @@
 
 <h1>{{article.title}}</h1>
 <div>
-    {{ article.content | safe }}
-</div>
-<div>
     {{article.content_upload | safe}}
+</div>
+
+<div>
+    {{article.publication_date | safe}}
+</div>
+
+<div>
+    {{article.author | safe}}
 </div>
 
 {% endblock %}

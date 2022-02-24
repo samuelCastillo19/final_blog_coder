@@ -9,13 +9,12 @@
 
 {% for article in articles %}
 
-    {{article.url}}
-
     <section class="container">
         <article class="post">
             <h2>{{article.title|safe}}</h2>
-            <p>{{article.content|safe}}</p>
-            <img src="/media/uploads/2022/02/20/screenshot-at-feb-07-8-17-43-am.png" width="400" />
+            <p>{{article.content_resume|safe}}</p>
+            <p>{{article.author|safe}}</p>
+            <img src="" alt="" width="400" />
             <a class="leer" href="{% url 'app1_detail_article' article.id%}">Leer</a>
             <a class="actualizar" href="{% url 'app1_update_article' article.id%}">Actualizar Articulo</a>
             <a class="borrar" href="{% url 'app1_delete_article' article.id%}">Borrar Articulo</a>

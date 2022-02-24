@@ -8,14 +8,18 @@
 <h1>{{article.title}}</h1>
 <hr>
 <div>
-    {{ article.content | safe }}
+    {{article.content_resume | safe}}
 </div>
 <hr>
 <div>
     {{article.content_upload | safe}}
 </div>
-
 <hr>
+<div>
+    {{article.publication_date | safe}}
+</div>
+<hr>
+
 
 <form method="POST">
     {% csrf_token %}

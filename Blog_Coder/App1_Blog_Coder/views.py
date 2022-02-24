@@ -42,13 +42,13 @@ class ArticleListView(ListView):
 class ArticleUpdateView(UpdateView):
     model = Article
     success_url = reverse_lazy('app1_articulos')
-    fields = ['title', 'content', 'content_upload']    
+    fields = ['title', 'content_resume', 'content_upload', 'publication_date', 'picture', 'author']    
     template_name = "App1/update_article.html"
 
 class ArticleCreateView(CreateView):
     model = Article
     success_url = reverse_lazy('app1_pages')
-    fields = ['title', 'content', 'content_upload']    
+    fields = ['title', 'content_resume', 'content_upload', 'publication_date', 'author']    
     template_name = "App1/new_article.html"
     
 class ArticleDeleteView(DeleteView):
