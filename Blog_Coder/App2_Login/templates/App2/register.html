@@ -1,0 +1,24 @@
+{%  extends 'App2/index.html' %}
+{%  load static %}
+
+{%  block content %}
+
+<section class="container">
+    <article class="post">
+        <form action="" method="POST">
+            {% csrf_token %}
+        
+            <table>
+        
+                {{ form.as_table }}
+        
+            </table>
+            
+            <button type="submit" style="padding: 5 rem;">Registrarse</button>
+        </form>
+
+    </article>
+    <hr>
+</section>
+
+{%  endblock %}

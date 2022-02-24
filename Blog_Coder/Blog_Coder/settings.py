@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'App1_Blog_Coder',
     'ckeditor_uploader',
-    'ckeditor'
+    'ckeditor',
+    'App2_Login'
 ]
 
 MIDDLEWARE = [

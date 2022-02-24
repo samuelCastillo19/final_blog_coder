@@ -1,0 +1,12 @@
+{%  extends 'App2/index.html' %}
+{%  load static %}
+
+{%  block content %}
+
+<h1>Usario creado con éxito!!</h1>
+
+<form method="GET" action="{% url 'app1_inicio' %}">
+    <button type="submit">Ir al Inicio</button>
+</form>
+
+{%  endblock %}
