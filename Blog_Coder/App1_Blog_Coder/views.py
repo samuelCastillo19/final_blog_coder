@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import render
 from App1_Blog_Coder.models import Article
 from django.views.generic import CreateView, UpdateView, ListView, DetailView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def inicio(request):
@@ -39,19 +40,21 @@ class ArticleListView(ListView):
     model = Article
     template_name = 'App1/pages.html'
     context_object_name = 'articles'
-class ArticleUpdateView(UpdateView):
+    
+
+class ArticleUpdateView(LoginRequiredMixin, UpdateView):
     model = Article
-    success_url = reverse_lazy('app1_articulos')
-    fields = ['title', 'content_resume', 'content_upload', 'publication_date', 'picture', 'author']    
+    success_url = reverse_lazy('app1_pages')
+    fields = ['title', 'content_resume', 'content_upload', 'publication_date', 'author']    
     template_name = "App1/update_article.html"
 
-class ArticleCreateView(CreateView):
+class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     success_url = reverse_lazy('app1_pages')
     fields = ['title', 'content_resume', 'content_upload', 'publication_date', 'author']    
     template_name = "App1/new_article.html"
     
-class ArticleDeleteView(DeleteView):
+class ArticleDeleteView(LoginRequiredMixin, DeleteView):
     model = Article
     success_url = reverse_lazy('app1_pages')
     template_name = "App1/delete_article.html"

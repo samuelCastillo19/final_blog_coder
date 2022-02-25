@@ -1,10 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
-from App2_Login.forms import UserRegisterForm
+from App2_Login.forms import UserRegisterForm, UserEditForm
 
 
 # Create your views here.
@@ -42,3 +42,21 @@ def register(request):
         form = UserRegisterForm()
     
     return render(request, "App2/register.html", {'form':form})
+
+@login_required
+def editar_perfil(request):
+    
+    usuario = request.user
+    
+    if request.method == 'POST':
+        formulario = UserEditForm(request.POST)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            usuario.email = data['email']
+            usuario.set_password(data['password1'])
+            usuario.save()
+            return redirect('app1_inicio')
+    else:
+        formulario = UserEditForm({'email': usuario.email})
+        
+    return render(request, 'App2/editar_perfil.html', {'form': formulario})

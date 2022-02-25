@@ -6,7 +6,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class Article(models.Model):
     
     title = models.CharField(max_length=50)
-    content_resume = RichTextField(blank=True, null=True)
+    content_resume = RichTextUploadingField(blank=True, null=True)
     content_upload = RichTextUploadingField(blank=True, null=True)
     publication_date = models.DateTimeField()
     picture = models.ImageField()
