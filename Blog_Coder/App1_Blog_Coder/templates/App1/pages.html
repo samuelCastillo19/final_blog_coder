@@ -4,7 +4,7 @@
 {%  block content %}
 
 {% if request.user.is_authenticated %}
-<form method="GET" action="{% url 'app1_new_article' %}">
+<form style="text-align: center; padding-top: 2rem;" method="GET" action="{% url 'app1_new_article' %}">
     <button type="submit">Nuevo Articulo</button>
 </form>
 {% endif %}
